@@ -1,18 +1,24 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+});
 
 export default function Home() {
   return (
-    <body className="bg-(--background)">
+    <body className={inter.className}>
       <header>
         <Navbar />
       </header>
-      <main className="flex flex-row justify-center">
-        <div className="flex flex-col items-center gap-8 mt-20">
-          <h1 className="text-7xl font-extrabold text-(--h1-color)">This is a simple shop</h1>
+      <main className="flex flex-row">
+        <div className="flex flex-col gap-8 mt-10 ml-10">
+          <h1 className="text-9xl text-(--h1-color) font-black z-1 relative leading-40">Alt du skal bruge. <br></br> Et sted.</h1>
           {/* KNAP */}
-          <Image src="/heroimg.webp" alt="Indkøbskurv med varer" width={500} height={300} className="h-auto w-full object-cover rounded-lg shadow-lg" />
         </div>
+          <Image src="/orange-thread.png" alt="Illustration" width={500} height={300} className="h-150 w-300 object-contain z-0 absolute" />
       </main>
       <footer></footer>
     </body>
