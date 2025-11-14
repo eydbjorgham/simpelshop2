@@ -34,7 +34,7 @@ const FetchProducts = async ( { category } ) => {
             <h2 className="text-s mr-2 mb-2">{product.title}</h2>
             <p className="text-s mb-2">{product.price} $</p>
           </Link>
-          <AddToCart id={product.id} title={product.title} price={product.price} />
+          <AddToCart id={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail} />
         </div>
       ))}
     </div>

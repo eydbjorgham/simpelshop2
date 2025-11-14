@@ -1,9 +1,9 @@
 "use client";
 import useStore from "@/store/favorit";
 
-const AddToCart = ({ id, title, price }) => {
+const AddToCart = ({ id, title, price, thumbnail }) => {
   const { favorite, toggleFavorite } = useStore();
-  const product = { id, title, price };
+  const product = { id, title, price, thumbnail };
   const isInCart = favorite.find((fav) => fav.id === id);
 
   return (
