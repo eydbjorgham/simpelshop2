@@ -1,14 +1,19 @@
 // import { useState } from "react";
+import Link from "next/link";
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, href = "#" }) => {
   return (
-    <button
-      className={"border-0 border-b-2 border-(--h1-color) bg-transparent p-2 w-fit font-semibold hover:cursor-pointer hover:scale-105 transition-transform duration-200 z-1 text-(--h1-color) text-3xl"}
-    //   onClick={onClick}
-    >
-      {text}
-    </button>
+    <Link href={href}>
+      <div
+        className={
+          "z-10 w-fit border-0 border-b-2 border-(--h1-color) bg-transparent p-2 text-3xl font-semibold text-(--h1-color) transition-transform duration-200 hover:scale-105 hover:cursor-pointer"
+        }
+        //   onClick={onClick}
+      >
+        {text}
+      </div>
+    </Link>
   );
 };
- 
+
 export default Button;
