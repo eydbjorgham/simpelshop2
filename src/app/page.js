@@ -10,21 +10,34 @@ const inter = Inter({
 
 export default function Home() {
   return (
-    <body className={inter.className}>
+    <section className={inter.className}>
       <header>
-        <Navbar />
+        <nav className="relative z-10">
+          <Navbar />
+        </nav>
       </header>
       <main className="flex flex-row">
-        <div className="flex flex-col gap-8 mt-10 ml-10">
-          <h1 className="text-9xl text-(--h1-color) font-black z-1 relative leading-40">Alt du skal bruge. <br></br> Et sted.</h1>
+        <div className="mt-10 ml-10 flex flex-col gap-8">
+          <h1 className="relative z-1 text-9xl leading-40 font-black text-(--h1-color)">
+            Alt du skal bruge. <br></br> Et sted.
+          </h1>
+
           <Button
-          text="Kom igang"
-          // onClick={() => console.log("Klik!")}
+            text="Kom igang"
+            // onClick={() => console.log("Klik!")}
+            href="/products"
+            className="z-10"
           />
         </div>
-          <Image src="/orange-thread.png" alt="Illustration" width={500} height={300} className="h-150 w-300 object-contain z-0 absolute" />
+        <Image
+          src="/orange-thread.png"
+          alt="Illustration"
+          width={500}
+          height={300}
+          className="absolute top-0 right-0 z-0 h-200 w-300 object-contain"
+        />
       </main>
       <footer></footer>
-    </body>
+    </section>
   );
 }

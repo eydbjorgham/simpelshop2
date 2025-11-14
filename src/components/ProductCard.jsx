@@ -21,7 +21,7 @@ const FetchProducts = async ( { category } ) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-6">
       {products.map((product) => (
         <div key={product.id}>
-          <Link href={`/detalje/${product.id}`}>
+          <Link href={`/products/${product.id}`}>
             <div className="rounded-2xl bg-white shadow-lg p-4 hover:shadow-xl transition-shadow">
               <Image
                 src={product.thumbnail}
