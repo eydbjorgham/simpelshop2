@@ -4,6 +4,7 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { Suspense } from "react";
 import Kurv from "./Kurv";
 import Link from "next/link";
+import Reviews from "./Reviews";
 
 const DisplayProduct = ({ params }) => {
   return (
@@ -66,6 +67,7 @@ const FetchDisplayProduct = async ({ params }) => {
           className="rounded-2xl bg-white shadow-lg"
         />
       </div>
+      <Reviews rating={product.rating} reviews={product.reviews}/>
     </div>
   );
 };
