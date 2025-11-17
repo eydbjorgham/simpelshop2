@@ -20,8 +20,8 @@ const CategoryDropdown = ({ categories }) => {
     <select
       value={selectedCategory}
       onChange={handleChange}
-      className="m-6 h-10 border text-l border-gray-300 rounded-2xl bg-white shadow-xs hover:border-blue-500 focus:border-blue-500 outline-none cursor-pointer">
-      <option value="" className='text-center'>Alle kategorier</option>
+      className="m-6 h-10 pl-2 border text-l border-gray-300 rounded-2xl bg-white shadow-xs hover:border-blue-500 focus:border-blue-500 outline-none cursor-pointer capitalize">
+      <option value="">Alle kategorier</option>
     
       {categories.map((category, index) => (
         <option key={index} value={category}>
