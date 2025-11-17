@@ -9,6 +9,7 @@
   --font-inter: var(--font-inter), sans-serif;
 }
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
