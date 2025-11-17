@@ -4,20 +4,19 @@ import Navbar from "@/components/Navbar";
 import { Suspense } from "react";
 
 const Payment = () => {
-    return ( 
-        <section>
-<Navbar />
+    return (
+      <section>
+        <Navbar />
         <Suspense>
-            <div className="ml-72 mr-72 mt-16">
-            <Kurv variant ="payment"
-            />
-            <button className="border cursor-pointer p-4 mt-16 w-64 rounded-2xl radius-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors mx-auto block">
-                Betal nu
+          <div className="mt-16 mr-72 ml-72">
+            <Kurv variant="payment" />
+            <button className="mx-auto mt-16 block w-64 cursor-pointer border-0 border-b-2 border-(--h1-color) p-4 text-lg font-semibold hover:outline-2 hover:outline-(--h1-color) hover:border-0">
+              Betal nu
             </button>
-            </div>
+          </div>
         </Suspense>
-</section>
-     );
+      </section>
+    );
 }
  
 export default Payment;

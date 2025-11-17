@@ -59,10 +59,11 @@ const Kurv = ({ variant }) => {
                 </span>
               </div>
               {variant !== "payment" && (
-                <Link href="/payment" className="block">
-                  <button className="mt-6 w-full cursor-pointer border-0 border-b-2 border-(--h1-color) p-4 text-lg font-semibold hover:outline-2 hover:outline-(--h1-color)">
+                <Link
+                  href="/payment"
+                  className="block text-center mt-6 w-full cursor-pointer border-0 border-b-2 border-(--h1-color) p-4 text-lg font-semibold hover:outline-2 hover:outline-(--h1-color)"
+                >
                     Gå til betaling
-                  </button>
                 </Link>
               )}
             </div>

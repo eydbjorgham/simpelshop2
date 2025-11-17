@@ -34,7 +34,7 @@ const Reviews = ({ rating, reviews }) => {
       </div>
 
         <div className="flex items-center gap-2">
-      <h2 className="ml-10 p-5 text-4xl font-bold">Anmeldelser</h2>
+      <h2 className="ml-10 p-5 text-4xl font-bold text-(--h1-color)">Anmeldelser</h2>
       
       {[...Array(fullStars)].map((_, i) => (
         <FaStar key={`full-${i}`} className="text-yellow-400" size={40} />
@@ -54,7 +54,7 @@ const Reviews = ({ rating, reviews }) => {
                     <div className="flex gap-2">
                         {renderStars(review.rating)}
                     </div>
-                    <p className="font-semibold text-2xl">"{review.comment}"</p>
+                    <p className="font-semibold text-2xl text-(--h1-color)">"{review.comment}"</p>
                     </div>
                     </div> 
             ))}
