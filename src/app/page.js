@@ -24,7 +24,6 @@ export default function Home() {
 
           <Button
             text="Kom igang"
-            // onClick={() => console.log("Klik!")}
             href="/products"
             className="z-10"
           />

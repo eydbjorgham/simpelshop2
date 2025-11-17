@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import Link from "next/link";
 
 const Button = ({ text, href = "#" }) => {
@@ -8,7 +7,7 @@ const Button = ({ text, href = "#" }) => {
         className={
           "z-10 w-fit border-0 border-b-2 border-(--h1-color) bg-transparent p-2 text-3xl font-semibold text-(--h1-color) transition-transform duration-200 hover:scale-105 hover:cursor-pointer"
         }
-        //   onClick={onClick}
+        
       >
         {text}
       </div>

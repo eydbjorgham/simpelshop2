@@ -2,57 +2,73 @@
 import useStore from "@/store/favorit";
 import Image from "next/image";
 import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+});
 
 const Kurv = ({ variant }) => {
   const { favorite, toggleFavorite } = useStore();
   const totalPrice = favorite.reduce((sum, item) => sum + item.price, 0);
 
   return (
-    <div className={variant === "payment" ? "" : "bg-white rounded-2xl shadow-lg p-6 sticky top-6"}>
-      <h2 className="text-2xl font-bold mb-4">Kurv</h2>
-      
-      {favorite.length === 0 ? (
-        <p className="text-gray-500 text-center py-4">Din kurv er tom</p>
-      ) 
-      : 
-      (
-        <>
-          <div className="space-y-3 max-h-96 overflow-y-auto">
-            {favorite.map((item) => (
-              <div key={item.id} className="flex justify-between items-start border-b pb-3">
-                {variant === "payment" && item.thumbnail && (
-                  <Image
-                    src={item.thumbnail}
-                    alt="billede"
-                    width={80}
-                    height={80}
-                    className="rounded-lg object-cover mr-3"
-                  />
-                )}
-                <div className="flex-1">
-                  <h3 className="font-semibold text-sm">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.price} $</p>
-                </div>
+    <div
+      className={
+        variant === "payment"
+          ? ""
+          : "sticky top-6 rounded-2xl bg-white p-6 shadow-lg"
+      }
+    >
+      <div className={inter.className}>
+        <h2 className="mb-4 text-2xl font-bold">Kurv</h2>
 
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-4 pt-4">
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-bold">Total:</span>
-              <span className="text-lg font-bold">{totalPrice.toFixed(2)} $</span>
+        {favorite.length === 0 ? (
+          <p className="py-4 text-center text-gray-500">Din kurv er tom</p>
+        ) : (
+          <>
+            <div className="max-h-96 space-y-3 overflow-y-auto">
+              {favorite.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-start justify-between border-b pb-3"
+                >
+                  {variant === "payment" && item.thumbnail && (
+                    <Image
+                      src={item.thumbnail}
+                      alt="billede"
+                      width={80}
+                      height={80}
+                      className="mr-3 rounded-lg object-cover"
+                    />
+                  )}
+                  <div className="flex-1">
+                    <h3 className="text-sm font-semibold">{item.title}</h3>
+                    <p className="text-sm text-gray-600">{item.price} $</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            {variant !== "payment" && (
-              <Link href="/payment" className="block">
-                <button className="border cursor-pointer p-4 mt-6 w-full rounded-2xl radius-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors">
-                  Gå til betaling
-                </button>
-              </Link>
-            )}
-          </div>
-        </>
-      )}
+
+            <div className="mt-4 pt-4">
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-bold">Total:</span>
+                <span className="text-lg font-bold">
+                  {totalPrice.toFixed(2)} $
+                </span>
+              </div>
+              {variant !== "payment" && (
+                <Link href="/payment" className="block">
+                  <button className="mt-6 w-full cursor-pointer border-0 border-b-2 border-(--h1-color) p-4 text-lg font-semibold hover:outline-2 hover:outline-(--h1-color)">
+                    Gå til betaling
+                  </button>
+                </Link>
+              )}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
