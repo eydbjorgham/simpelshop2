@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Navbar from "./Navbar";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { Suspense } from "react";
@@ -6,6 +5,7 @@ import Kurv from "./Kurv";
 import Link from "next/link";
 import Reviews from "./Reviews";
 import { Inter } from "next/font/google";
+import ImageGallery from "./ImageGallery";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,16 +38,12 @@ const FetchDisplayProduct = async ({ params }) => {
           </Link>
         </div>
         <div className="row-3 ml-6 flex gap-10">
-          <Image
-            loading="eager"
-            src={product.thumbnail}
-            alt={product.title}
-            width={500}
-            height={300}
-            className="rounded-4xl bg-white shadow-lg"
-          />
+          <ImageGallery 
+          images={product.images} 
+          title={product.title} 
+          thumbnail={product.thumbnail} />
           <div>
-            <h1 className="text-4xl mb-3 font-bold text-(--h1-color)">
+            <h1 className="mb-3 text-4xl font-bold text-(--h1-color) max-w-m leading-13">
               {product.title}
             </h1>
             <p className="max-w-xs leading-10 text-(--h1-color)">
@@ -58,29 +54,7 @@ const FetchDisplayProduct = async ({ params }) => {
             <Kurv />
           </div>
         </div>
-        <div className="row-4 ml-6 flex gap-4 p-4">
-          <Image
-            src={product.thumbnail}
-            alt={product.title}
-            width={90}
-            height={90}
-            className="rounded-2xl bg-white shadow-lg transition-transform duration-200 hover:scale-105 hover:cursor-pointer"
-          />
-          <Image
-            src={product.thumbnail}
-            alt={product.title}
-            width={90}
-            height={90}
-            className="rounded-2xl bg-white shadow-lg transition-transform duration-200 hover:scale-105 hover:cursor-pointer"
-          />
-          <Image
-            src={product.thumbnail}
-            alt={product.title}
-            width={90}
-            height={90}
-            className="rounded-2xl bg-white shadow-lg transition-transform duration-200 hover:scale-105 hover:cursor-pointer"
-          />
-        </div>
+        
         <Reviews rating={product.rating} reviews={product.reviews} />
       </div>
     </div>
@@ -88,3 +62,4 @@ const FetchDisplayProduct = async ({ params }) => {
 };
 
 export default DisplayProduct;
+
